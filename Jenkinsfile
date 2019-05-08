@@ -15,13 +15,13 @@ pipeline {
         stage('Build') {
             steps {
                     
-		   sh "mvn -f demo-service-master/user-service clean war:war"
+		   sh "/opt/maven/bin/mvn -f demo-service-master/user-service clean war:war"
             }
         }
 	stage('Test') {
             steps {
                     sh "ls -ltr demo-service-master/user-service/target"
-		    sh "mvn -f demo-service-master/user-service test"
+		    sh "/opt/maven/bin/mvn -f demo-service-master/user-service test"
             }
         }
 	stage('Artifact') {
